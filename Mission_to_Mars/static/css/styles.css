@@ -1,0 +1,14 @@
+.header-font {
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.mini-header-font {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+.headline {
+    font-weight: bolder;
+}
