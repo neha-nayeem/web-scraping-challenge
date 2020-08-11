@@ -5,9 +5,8 @@ In this assignment, the ask was to build a web application that scrapes various 
 
 **Step 1: Scraping**
 
-**Step 2 - MongoDB and Flask Application**
+**Step 2: MongoDB and Flask Application**
 
-The web scraping application can be viewed at: 
 
 ## Step 1: Scraping
 
@@ -23,7 +22,7 @@ Initial scraping of the following websites was completed using Jupyter Notebook,
 
 * [USGS Astrogeology](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars): this website was used to obtain high resolution images for each of Mar's hemispheres by finding the image url to the full resolution image. These urls were saved along with the title with the hemisphere name in a dictionary.
 
-## Step 2 - MongoDB and Flask Application
+## Step 2: MongoDB and Flask Application
 
 MongoDB with Flask templating was used to create a new HTML page that displays all of the information that was scraped from the URLs above. The following tasks were completed:
 
