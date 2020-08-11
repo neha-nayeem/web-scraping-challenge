@@ -14,9 +14,9 @@ Initial scraping of the following websites was completed using Jupyter Notebook,
 
 * [NASA Mars News Site](https://mars.nasa.gov/news/): the latest news titles and paragraph texts were scraped and saved into variables.
 
-* [JPL Featured Space Image](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars): the image url for the current Featured Mars Image was found and assigned to a variable called `featured_image_url`.
+* [JPL Featured Space Image](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars): the image url for the current Featured Mars Image was found and assigned to a variable called `featuredimage_url`. The title was also saved as `feauturedimage_title`.
 
-* [Mars Weather Twitter account](https://twitter.com/marswxreport?lang=en): the latest Mars weather tweet was scraped from this page and the text saved as a variable called `mars_weather`.
+* [Mars Weather Twitter account](https://twitter.com/marswxreport?lang=en): the latest Mars weather tweet was scraped from this page and the text saved as a variable called `latest_tweet`. It was cleaned up using Pandas to remove newlines.
 
 * [Mars Facts](https://space-facts.com/mars/): the table containing facts about the planet including Diameter, Mass, etc. was scraped and Pandas was used to convert the data to a HTML table string.
 
