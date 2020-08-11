@@ -7,6 +7,8 @@ In this assignment, the ask was to build a web application that scrapes various 
 
 **Step 2 - MongoDB and Flask Application**
 
+The web scraping application can be viewed at: 
+
 ## Step 1: Scraping
 
 Initial scraping of the following websites was completed using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter:
@@ -27,10 +29,8 @@ MongoDB with Flask templating was used to create a new HTML page that displays a
 
 * The Jupyter notebook was converted into a Python script called `scrape_mars.py` with a function called `scrape` that executes all of the scraping code from above and returns one Python dictionary containing all of the scraped data.
 
-* A route called `/scrape` was created, that will import the `scrape_mars.py` script and call the `scrape` function.
+* A root route `/` was created, that simply displays a cover page with a button to begin the initial scraping (index.html).
 
-* The return value is stored in Mongo as a Python dictionary.
+* A route called `/scrape` was created, that will import the `scrape_mars.py` script and call the `scrape` function. The return value is stored in Mongo as a Python dictionary.
 
-* A root route `/` was created, that queries the Mongo database and passes the Mars data into an HTML template for display.
-
-* A template HTML file called `index.html` was created, that will take the Mars data dictionary and display all of the data in the appropriate HTML elements.
+* A route called `/data` queries the Mongo database and passes the Mars data into an HTML template for display (data.html).
