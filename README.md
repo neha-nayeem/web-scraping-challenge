@@ -40,10 +40,10 @@ MongoDB with Flask templating was used to create a new HTML page that displays a
 
 Bootstrap CSS was used to create a landing page with a single button to begin scraping data by calling the `/scrape` route.
 
-![landing-page.png](screenshots/Root-Route.png)
+![landing-page](Mission_to_Mars/screenshots/Root-Route.png)
 
 ### Data display (data.html)
 
 The `/scrape` route redirects to a `/data` route that renders a second html template, created to display the scraped data using Bootstrap and custom CSS.
 
-![data-page.png](screenshots/Data-Route.png)
+![data-page](Mission_to_Mars/screenshots/Data-Route.png)
