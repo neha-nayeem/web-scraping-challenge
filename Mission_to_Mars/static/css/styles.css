@@ -30,8 +30,8 @@ tbody>tr>td:first-of-type {
     background-color: #bf5a35de;
 }
 
-a:not(.foot-a, .lead),
-.text-mars-red {
+.text-mars-red,
+.link {
     color: #d36e49;
 }
 
