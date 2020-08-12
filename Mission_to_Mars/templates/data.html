@@ -6,11 +6,6 @@
     <!-- bootstrap's responsive meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Disable caching to use updated CSS file -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
     <title>Mission to Mars</title>
 
     <!-- bootstrap css links and script -->
@@ -25,45 +20,45 @@
 
 </head>
 
-<body class="bg-light">
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid rounded text-center bg-dark">
+<body class="bg-dark">
+    <div class="container-fluid p-0">
+        <div class="jumbotron jumbotron-fluid m-0 text-center bg-mars-red">
             <h1 class="text-light header-font">Mission to Mars</h1>
-            <p><a class="btn btn-danger btn-md font-weight-light" href="/scrape" role="button">Scrape New Data</a></p>
+            <p><a class="btn btn-light btn-md" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
 
-        <div class="row my-3">
+        <div class="row px-4 pt-4 mt-3">
             <div class="col-12">
-                <h3 class="mini-header-font">Latest Mars News</h3>
+                <h3 class="mini-header-font mb-3">Latest Mars News</h3>
                 <h5 class="headline">{{ info.news_title }}</h5>
                 <p class="font-weight-light">{{ info.news_para }}</p>
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row p-4">
             <div class="col-sm-12 col-md-7">
-                <h3 class="mini-header-font">Featured Space Image</h4>
-                    <p class="font-weight-light">{{ info.featuredimage_title }}</p>
-                    <img class="img-fluid" src={{info.featuredimage_url}} alt="Card image cap">
-                    <caption><small>Source: <a target="blank_" href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars">jpl.nasa.gov</a></small></caption>
+                <h3 class="mini-header-font mb-3">Featured Space Image</h4>
+                    <p class=" font-weight-light ">{{ info.featuredimage_title }}</p>
+                    <img class="img-fluid " src={{info.featuredimage_url}} alt="Card image cap ">
+                    <caption><small>Source: <a target="blank_ " href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars ">jpl.nasa.gov</a></small></caption>
             </div>
 
-            <div class="col-sm-12 col-md-5">
-                <div class="card bg-transparent">
-                    <div class="card-header bg-dark">
-                        <h6 class="text-light m-auto mini-header-font">Mars Weather Information</h6>
+            <div class="col-sm-12 col-md-5 pt-2 ">
+                <div class="card bg-grey-card ">
+                    <div class="card-header bg-mars-red ">
+                        <h6 class="text-light m-auto mini-header-font ">Mars Weather Information</h6>
                     </div>
                     <div class=" card-body ">
-                        <p class="font-weight-light">{{ info.latest_tweet }}</p>
+                        <p class="font-weight-light ">{{ info.latest_tweet }}</p>
                         <caption><small>Source: <a target="blank_ " href="https://twitter.com/marswxreport ">@marswxreport</a></small></caption>
                     </div>
                 </div>
                 <br>
-                <div class="card bg-transparent ">
-                    <div class="card-header bg-dark ">
-                        <h6 class="mini-header text-light m-0 mini-header-font">Mars Planet Profile</h6>
+                <div class="card bg-grey-card ">
+                    <div class="card-header bg-mars-red ">
+                        <h6 class="mini-header text-light m-0 mini-header-font ">Mars Planet Profile</h6>
                     </div>
-                    <div class="card-body table-responsive">
+                    <div class="card-body table-responsive ">
                         {{info.mars_fact_table|safe}}
                         <caption><small>Source: <a href="https://space-facts.com/mars/ ">Space Facts</a></small></caption>
 
@@ -75,20 +70,20 @@
 
         <div class="row mt-5 mb-3 ">
             <div class="col-12 ">
-                <h3 class="text-center mini-header-font">Mars Hemispheres</h3>
+                <h3 class="text-center mini-header-font ">Mars Hemispheres</h3>
             </div>
         </div>
 
         <div class="row ">
             <div class="card-deck mx-auto ">
-                <div class="card " style="width: 24rem; ">
+                <div class="card bg-grey-card" style="width: 24rem; ">
                     <img class="card-img-top img-fluid " src={{info.hemisphere_images[0].img_url}} alt={{info.hemisphere_images[0].title}}>
                     <div class="card-body ">
                         <p class="card-text text-center "><strong>{{info.hemisphere_images[0].title}}</strong></p>
                     </div>
                 </div>
 
-                <div class="card " style="width: 24rem; ">
+                <div class="card bg-grey-card" style="width: 24rem; ">
                     <img class="card-img-top img-fluid " src={{info.hemisphere_images[1].img_url}} alt={{info.hemisphere_images[1].title}}>
                     <div class="card-body ">
                         <p class="card-text text-center "><strong>{{info.hemisphere_images[1].title}}</strong></p>
@@ -98,25 +93,30 @@
 
         </div>
 
-        <div class="row my-4 ">
+        <div class="row mt-2 mb-4">
             <div class="card-deck mx-auto ">
-                <div class="card " style="width: 24rem; ">
+                <div class="card bg-grey-card" style="width: 24rem; ">
                     <img class="card-img-top img-fluid " src={{info.hemisphere_images[2].img_url}} alt={{info.hemisphere_images[2].title}}>
                     <div class="card-body ">
                         <p class="card-text text-center "><strong>{{info.hemisphere_images[2].title}}</strong></p>
                     </div>
                 </div>
 
-                <div class="card " style="width: 24rem; ">
+                <div class="card bg-grey-card" style="width: 24rem; ">
                     <img class="card-img-top img-fluid " src={{info.hemisphere_images[3].img_url}} alt={{info.hemisphere_images[3].title}}>
                     <div class="card-body ">
                         <p class="card-text text-center "><strong>{{info.hemisphere_images[3].title}}</strong></p>
                     </div>
                 </div>
             </div>
-
-
         </div>
+
+        <footer class="bg-mars-red">
+            <div>
+                <p class="text-light text-center p-3 m-0">A <a class="foot-a" href="https://github.com/neha-nayeem/web-scraping-challenge">Web Scraping Project</a> by Neha Nayeem &#169; 2020</p>
+            </div>
+
+        </footer>
         <!-- Bootstrap javascript tags -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
@@ -124,8 +124,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
 </body>
 
-<footer class="footer ">
 
-</footer>
 
 </html>
