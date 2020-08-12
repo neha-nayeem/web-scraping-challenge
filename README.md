@@ -56,7 +56,3 @@ Bootstrap CSS was used to create a landing page with a single button to begin sc
 The `/scrape` route redirects to a `/data` route that renders a second html template, created to display the scraped data using Bootstrap and custom CSS.
 
 ![data-page](Mission_to_Mars/screenshots/Data-Route.png)
-
-ANother one
-
-![data-page](Mission_to_Mars/screenshots/Data-Route2.png)
