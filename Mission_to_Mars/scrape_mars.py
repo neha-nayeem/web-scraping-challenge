@@ -8,7 +8,7 @@ def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
     #For mac users
     executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
-    return Browser("chrome", **executable_path, headless=True)
+    return Browser("chrome", **executable_path, headless=False)
 
     #For windows users
     # executable_path = {'executable_path': 'driver/chromedriver.exe'}
@@ -20,10 +20,12 @@ def scrape():
     # ******************************************************************************************************************************
     # Scraping Mars News
     # *****************************************************************************************************************************
+    
     MarsNews_url = 'https://mars.nasa.gov/news/'
 
     print("Scraping Mars News...")
-    # --- visit the JPL Featured Space Image website ---
+
+    # --- visit the Mars News website ---
     browser.visit(MarsNews_url)
     time.sleep(1)
 
@@ -41,14 +43,17 @@ def scrape():
 
     # --- save the paragraph text under the <div> tag with a class of 'article_teaser_body' ---
     news_para = first_li.find('div', class_='article_teaser_body').text
+
     print("Mars News: Scraping Complete!")
 
     # *****************************************************************************************************************************
     # Scraping JPL Featured Image URL 
     # *****************************************************************************************************************************
+    
     JPLimage_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
 
     print("Scraping JPL Featured Space Image...")
+
     # --- visit the JPL Featured Space Image website ---
     browser.visit(JPLimage_url)
     time.sleep(1)
@@ -107,33 +112,37 @@ def scrape():
     # *****************************************************************************************************************************
     # Scraping Mars Weather Tweet
     # *****************************************************************************************************************************
+    
     MarsWeather_url = 'https://twitter.com/marswxreport'
 
     print("Scraping Mars Weather's Twitter Account...")
+
     # --- visit the Mars Weather twitter account ---
     browser.visit(MarsWeather_url)
-    time.sleep(1)
+    time.sleep(5)
 
-    # --- get a list of all <span> tags ---
-    all_spans = browser.find_by_css('span')
+    # --- create HTML object ---
+    html = browser.html
 
-    # --- checking to find index for the first tweet (stored in <span> tag) - it is at index 48 ---
-    #for span in range(len(all_spans)):
-    #    print(span, all_spans[span].value)
+    # --- parse HTML with BeautifulSoup ---
+    soup = BeautifulSoup(html, 'html.parser')
 
-    # --- save the latest tweet (at index 48 of the span element list) in a variable ---
-    latest_tweet = all_spans[48].value
+    # --- save the latest tweet in a variable (found in the text of the first element <span> under the <div> tag with lang="en" ---
+    tweet = soup.find_all('div', lang='en')[0].text
 
     # --- clean up the tweet (remove newline) ---
-    cleaned_tweet = latest_tweet.replace('\n', '')
-
+    latest_tweet = tweet.replace('\n', '')
+        
     print("Mars Weather: Scraping Complete!")
+
     # *****************************************************************************************************************************
     #  Scraping Mars Facts
     # *****************************************************************************************************************************
+    
     MarsFacts_url = 'https://space-facts.com/mars/'
 
     print("Scraping Mars Facts...")
+
     # --- visit the Mars Facts website ---
     browser.visit(MarsFacts_url)
     time.sleep(1)
@@ -148,16 +157,19 @@ def scrape():
     facts_df = table[0]
     facts_df.columns =['Description', 'Value']
 
-    # --- convert the dataframe to a HTML table and save to html file ---
-    html_table = facts_df.to_html(index=False, header=False, border=0, table_id="fact-table", classes="table table-sm table-striped font-weight-light table-font")
+    # --- convert the dataframe to a HTML table and pass parameters for styling ---
+    html_table = facts_df.to_html(index=False, header=False, border=0, classes="table table-sm table-striped font-weight-light")
 
     print("Mars Facts: Scraping Complete!")
+
     # *****************************************************************************************************************************
     #  Scraping Mars Hemisphere images
     # *****************************************************************************************************************************
+    
     MarsHemImage_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
 
     print("Scraping Mars Hemisphere Images...")
+    
     # --- visit the Mars Hemisphere website ---
     browser.visit(MarsHemImage_url)
     time.sleep(1)
@@ -206,7 +218,9 @@ def scrape():
 
     # --- Quit the browser after scraping ---
     browser.quit()
+
     print("Mars Hemisphere Images: Scraping Complete!")
+    
     # *****************************************************************************************************************************
     #  Store all values in dictionary
     # *****************************************************************************************************************************
@@ -216,8 +230,8 @@ def scrape():
         "news_para": news_para,
         "featuredimage_title": featuredimage_title,
         "featuredimage_url": featuredimage_url,
-        "latest_tweet": cleaned_tweet,
-        "mars_fact_table": html_table,
+        "latest_tweet": latest_tweet,
+        "mars_fact_table": html_table, 
         "hemisphere_images": hemisphere_image_data
     }
 
