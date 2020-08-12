@@ -1,3 +1,7 @@
+* {
+    color: #e9ecef;
+}
+
 .header-font {
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
@@ -11,4 +15,30 @@
 
 .headline {
     font-weight: bolder;
+}
+
+tbody>tr>td {
+    font-size: 15px;
+}
+
+tbody>tr>td:first-of-type {
+    font-weight: bold;
+}
+
+.bg-mars-red {
+    /* background-color: #bd2433c5; */
+    background-color: #bf5a35de;
+}
+
+a:not(.foot-a, .lead),
+.text-mars-red {
+    color: #d36e49;
+}
+
+.foot-a {
+    color: #e9ecef;
+}
+
+.bg-grey-card {
+    background-color: #495057;
 }
