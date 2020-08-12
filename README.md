@@ -12,15 +12,24 @@ In this assignment, the ask was to build a web application that scrapes various 
 
 Initial scraping of the following websites was completed using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter:
 
-* [NASA Mars News Site](https://mars.nasa.gov/news/): the latest news titles and paragraph texts were scraped and saved into variables.
+* [NASA Mars News Site](https://mars.nasa.gov/news/): 
+  * The latest news title 
+  * The latest news paragraph text
 
-* [JPL Featured Space Image](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars): the image url for the current Featured Mars Image was found and assigned to a variable called `featuredimage_url`. The title was also saved as `feauturedimage_title`.
+* [JPL Featured Space Image](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars): 
+  * The image url for the current Featured Space image
+  * The title of the current Featured Space image
 
-* [Mars Weather Twitter account](https://twitter.com/marswxreport?lang=en): the latest Mars weather tweet was scraped from this page and the text saved as a variable called `latest_tweet`. It was cleaned up using Pandas to remove newlines.
+* [Mars Weather Twitter account](https://twitter.com/marswxreport?lang=en): 
+  * the latest Mars weather tweet: this was additionally cleaned up using Pandas to remove newlines
 
-* [Mars Facts](https://space-facts.com/mars/): the table containing facts about the planet including Diameter, Mass, etc. was scraped and Pandas was used to convert the data to a HTML table string.
+* [Mars Facts](https://space-facts.com/mars/): 
+  * the Mars facts table: Pandas was used to convert the data to a HTML table string
 
-* [USGS Astrogeology](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars): this website was used to obtain high resolution images for each of Mar's hemispheres by finding the image url to the full resolution image. These urls were saved along with the title with the hemisphere name in a dictionary.
+* [USGS Astrogeology](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars): 
+  * The full-resolution image url of each hemisphere
+  * The title of the hemisphere name
+  * The above two were saved into a Python dictionary
 
 ## Step 2: MongoDB and Flask Application
 
